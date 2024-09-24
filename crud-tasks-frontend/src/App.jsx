@@ -8,20 +8,20 @@ function App() {
 
     // Fetch tasks from backend
     useEffect(() => {
-        axios.get('http://localhost:5000/tasks').then((response) => {
+        axios.get('https://task-manger-3o2p.onrender.com/tasks').then((response) => {
             setTasks(response.data);
         });
     }, []);
 
     const handleCreateTask = () => {
-        axios.post('http://localhost:5000/tasks', newTask).then((response) => {
+        axios.post('https://task-manger-3o2p.onrender.com/tasks', newTask).then((response) => {
             setTasks([...tasks, response.data]);
             setNewTask({ title: '', description: '', completed: false });
         });
     };
 
     const handleDeleteTask = (id) => {
-        axios.delete(`http://localhost:5000/tasks/${id}`).then(() => {
+        axios.delete(`https://task-manger-3o2p.onrender.com/tasks/${id}`).then(() => {
             setTasks(tasks.filter(task => task._id !== id));
         });
     };
